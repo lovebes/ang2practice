@@ -3,7 +3,7 @@ import {
   OnChanges,
   DoCheck,
   AfterContentInit,
-  AfterContentChecked, OnDestroy, Input, ViewEncapsulation, SimpleChanges, ViewChild, ElementRef
+  AfterContentChecked, OnDestroy, Input, ViewEncapsulation, SimpleChanges, ViewChild, ElementRef, ContentChild
 } from '@angular/core';
 
 @Component({
@@ -20,7 +20,7 @@ export class ServerElementComponent implements OnInit,
   @Input('srvElement') element:{type:string, name:string, content:string};
   @Input() name:string;
   @ViewChild('heading') header: ElementRef;
-
+  @ContentChild('contentParagraph') paragraph: ElementRef;
   constructor() {
   }
 
@@ -44,6 +44,7 @@ export class ServerElementComponent implements OnInit,
   ngOnInit() {
     console.log('ngOnInit called');
     console.log('Text content: ' + this.header.nativeElement.textContent);
+    console.log('Content paragraph: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -52,10 +53,12 @@ export class ServerElementComponent implements OnInit,
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called');
+    console.log('Content paragraph: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked called');
+    console.log('Content paragraph: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngAfterViewInit() {
