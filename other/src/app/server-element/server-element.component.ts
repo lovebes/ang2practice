@@ -13,5 +13,17 @@ export class ServerElementComponent implements OnInit {
 
   ngOnInit() {
   }
+  /*
+  Other  points:
 
+  ngOnChanges
+  ngOnInit - not rendered on page
+  ngDoCheck - change detection
+  ngAfterContentInit - called after content (ng-content) has been projected into view
+  ngAfterContentChecked - projected content has been checked for change
+  ngAfterViewInit - component's view (child views also ) has been initialized
+  ngAfterViewChecked - called every time the view (and child views) have been checked
+  ngOnDestroy - called when about to be destroyed.
+
+   */
 }
